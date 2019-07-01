@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/kmontag/protobufjs-loader.svg?branch=master)](https://travis-ci.org/kmontag/protobufjs-loader)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
-# protobufjs-loader
+# protobuf-preloader
 Webpack loader to translate
 [protobuf](https://github.com/google/protobuf/) definitions to
 [ProtoBuf.js](https://github.com/dcodeIO/ProtoBuf.js/)
@@ -28,7 +28,7 @@ module.exports = {
         rules: [{
             test: /\.proto$/,
             use: {
-              loader: 'protobufjs-loader',
+              loader: 'protobuf-preloader',
               options: {
                 /* controls the "target" flag to pbjs - true for
                  * json-module, false for static-module.

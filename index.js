@@ -2,7 +2,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const loaderUtils = require("loader-utils");
 const pbjs = require('protobufjs/cli').pbjs;
 const protobuf = require('protobufjs');
 const tmp = require('tmp-promise');
@@ -32,7 +31,8 @@ const schema = {
 module.exports = function(source) {
   let callback = this.async();
   let self = this;
-  let loaderOptions = loaderUtils.getOptions(this)
+  // When the options is empty create an empty object instend getting null
+  let loaderOptions = getOptions(this) || {};
   const options = Object.assign({
     json: false,
     // Default to the paths given to the compiler (this.options is the
@@ -40,7 +40,7 @@ module.exports = function(source) {
     paths: loaderOptions.paths || [],
 
     pbjsArgs: [],
-  }, getOptions(this));
+  }, loaderOptions);
   validateOptions(schema, options, 'protobufjs-loader');
 
   let filename;
@@ -114,7 +114,6 @@ module.exports = function(source) {
       loadDependencies.catch(function(depErr) {
         callback(depErr);
       }).then(function() {
-        console.dir(result)
         callback(err, result);
       });
     });

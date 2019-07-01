@@ -1,5 +1,5 @@
 {
-  "name": "protobufjs-loader-webpack4",
+  "name": "protobuf-preloader",
   "version": "0.0.1",
   "description": "Webpack loader to translate .proto definitions to ProtoBuf.js modules",
   "main": "index.js",
@@ -17,7 +17,9 @@
   "license": "MIT",
   "dependencies": {
     "protobufjs": "^6.8.0",
-    "tmp-promise": "^1.0.4"
+    "tmp-promise": "^1.0.4",
+    "loader-utils": "^1.2.3",
+    "schema-utils": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
@@ -45,6 +47,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/PermissionData/protobufjs-loader.git"
+    "url": "https://github.com/moshe-kabala/protobufjs-loader"
   }
 }
